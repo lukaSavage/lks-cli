@@ -1,0 +1,51 @@
+#! /usr/bin/env node
+
+// console.log('哈哈哈哈，会命令了');
+
+const program = require('commander');
+const chalk = require('chalk');
+
+// 配置创建项目的命令
+program
+  .command('create <app-name>') // 创建项目的命令
+  .description('create a new project') // 描述信息
+  .option('-f, --force', 'overwrite target directory if it exists') // 可选(额外配置)项，是否要强制创建一个新项目
+  .action((name, cmd)=>{ // 该回调会在执行命令的时候触发
+    // name: 代表<app-name>
+    // cmd: 代表运行命令时传递的参数
+    console.log(name, cmd)
+  })
+
+// 配置config
+program
+  .command('config [value]')
+  .description('inspect and modify the config')
+  .option('-g, --get <path>', 'get value from option')
+  .option('-s, --set <path> <value>')
+  .option('-d, --delete <path>', 'delete option from config')
+  .action((value, cmd)=>{
+    console.log(value, cmd);
+  })
+
+// 配置命令UI界面
+program
+  .command('ui')
+  .description('start and open zhufeng-cli ui')
+  .option('-p --port <port>', 'Port used for the UI server')
+  .action((cmd)=>{
+    console.log(cmd)
+  })
+
+// 监听执行命令
+program.on('--help', function() {
+  console.log(`给命令增加颜色，比如:${chalk.cyan('哈哈哈，我成功了~')}12321`);
+})
+
+
+// 配置版本号
+program
+  .version(require('../package.json').version)
+  .usage(`<command> [option]`)
+
+// 解析用户执行命令传入的参数
+program.parse(process.argv)

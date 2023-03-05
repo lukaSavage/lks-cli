@@ -1,0 +1,27 @@
+{
+  "name": "lks-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "lks": "./bin/lks"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukaSavage/lks-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukaSavage/lks-cli/issues"
+  },
+  "homepage": "https://github.com/lukaSavage/lks-cli#readme",
+  "dependencies": {
+    "chalk": "4.0",
+    "commander": "^10.0.0"
+  }
+}
